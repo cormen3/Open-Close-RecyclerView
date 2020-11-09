@@ -9,9 +9,8 @@ import kotlinx.android.synthetic.main.movie_layout.view.movieName
 *   Created by Ehsan Abbasi on 11/4/2020
 */
 
-class MovieViewHolder(private val view: View) : BaseViewHolder<MediaTile>(view) {
-    override fun bind(model: MediaTile) {
-        val movie: Movie = model as Movie
-        view.movieName.text = movie.name
+class MovieViewHolder(private val view: View) : BaseViewHolder<Movie>(view) {
+    override fun bind(model: Movie) {
+        view.movieName.text = model.name
     }
 }
