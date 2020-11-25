@@ -1,0 +1,3 @@
+package com.example.simplerecyclerview.common
+
+interface RecyclerModel

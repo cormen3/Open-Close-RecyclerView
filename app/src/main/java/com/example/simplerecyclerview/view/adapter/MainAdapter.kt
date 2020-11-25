@@ -1,14 +1,18 @@
 package com.example.simplerecyclerview.view.adapter
 
+import com.example.simplerecyclerview.R
 import com.example.simplerecyclerview.common.BaseAdapter
-import com.example.simplerecyclerview.model.Model1Tile
-import com.example.simplerecyclerview.model.Model2Tile
+import com.example.simplerecyclerview.common.ViewHolderData
 
 class MainAdapter : BaseAdapter(
-    Model1Tile,
-    Model2Tile
+    ViewHolderData(
+        Model1::class.java,
+        R.layout.list_item_type_1,
+        Model1ViewHolder::class.java
+    ),
+    ViewHolderData(
+        Model2::class.java,
+        R.layout.list_item_type_2,
+        Model2ViewHolder::class.java
+    )
 )
-
-
-
-
