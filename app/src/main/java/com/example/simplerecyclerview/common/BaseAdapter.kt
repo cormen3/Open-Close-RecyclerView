@@ -1,43 +1,43 @@
 package com.example.simplerecyclerview.common
 
+import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseAdapter(vararg viewHolders: ViewHolderData) : RecyclerView.Adapter<BaseHolder>() {
+abstract class BaseAdapter : RecyclerView.Adapter<BaseHolder<RecyclerModel>>() {
 
-    private var mModels: MutableList<RecyclerModel> = mutableListOf()
-    private val viewHoldersMap = HashMap<Int, ViewHolderData>()
-    private val viewTypesMap = HashMap<Class<out RecyclerModel>, Int>()
-
-    init {
-        viewHolders.iterator().forEach { viewHolder ->
-            viewTypesMap[viewHolder.modelClass] = viewHolder.viewType
-            viewHoldersMap[viewHolder.viewType] = viewHolder
-        }
-    }
+    private var mItems: MutableList<RecyclerModel> = mutableListOf()
+    private val supportedViewHolder = SparseArray<Class<out BaseHolder<RecyclerModel>>>()
 
     override fun getItemViewType(position: Int): Int {
-        return viewTypesMap[mModels[position]::class.java]!!
+        val item = mItems[position]
+        val viewType = item.viewType
+        if (supportedViewHolder.indexOfKey(viewType) < 0) {
+            supportedViewHolder.put(viewType, item.viewHolderClass)
+        }
+
+        return viewType
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseHolder<RecyclerModel> {
         val view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
-        return viewHoldersMap[viewType]!!.viewHolderClass.getConstructor(View::class.java).newInstance(view)
+        return supportedViewHolder[viewType]!!.getConstructor(View::class.java).newInstance(view)
     }
 
-    override fun onBindViewHolder(holder: BaseHolder, position: Int) {
-        holder.bind(mModels[position])
+    override fun onBindViewHolder(holder: BaseHolder<RecyclerModel>, position: Int) {
+        holder.bind(mItems[position])
     }
 
     override fun getItemCount(): Int {
-        return mModels.size
+        return mItems.size
     }
 
     fun setList(list: List<RecyclerModel>) {
-        mModels.clear()
-        mModels.addAll(list)
+        mItems.clear()
+        mItems.addAll(list)
         notifyDataSetChanged()
     }
+    
 }

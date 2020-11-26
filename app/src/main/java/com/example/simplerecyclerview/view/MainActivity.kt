@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val adapter = MainAdapter().apply {
-            setList(listOf(Model1("FirstType1Item"), Model2("FirstType2Item")))
+            setList(listOf(Model1("SecondType1Item"), Model2("SecondType2Item")))
         }
         recyclerView.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         recyclerView.adapter = adapter

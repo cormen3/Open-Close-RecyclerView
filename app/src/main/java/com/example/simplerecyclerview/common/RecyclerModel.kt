@@ -1,3 +1,6 @@
 package com.example.simplerecyclerview.common
 
-interface RecyclerModel
+interface RecyclerModel {
+    val viewType: Int
+    val viewHolderClass: Class<out BaseHolder<RecyclerModel>>
+}
