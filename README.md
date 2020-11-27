@@ -14,7 +14,10 @@ you can see the 4 types of implementation in these repositories:
 https://github.com/abbasiehsan1991/Open-Close-RecyclerView
 
 
-https://github.com/hadi72h/Open-Close-RecyclerView
+https://github.com/hadi72h/Open-Close-RecyclerView/tree/hadi-approach
+
+
+https://github.com/hadi72h/Open-Close-RecyclerView/tree/hadi-main-approach
 
 
 https://github.com/cormen3/Open-Close-RecyclerView/tree/hossein-approach
