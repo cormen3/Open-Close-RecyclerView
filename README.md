@@ -16,3 +16,6 @@ https://github.com/abbasiehsan1991/Open-Close-RecyclerView
 
 https://github.com/hadi72h/Open-Close-RecyclerView
 
+
+https://github.com/cormen3/Open-Close-RecyclerView/tree/hossein-approach
+
