@@ -7,3 +7,12 @@ Scott Meyers in "Effective C++" says:
 Anytime you find yourself writing code of the form “if the object is of type T1, then do something, but if it’s of type T2, then do something else,” slap yourself.
 
 If you look at those adapters implementation that have switch case with instace cheking in onCreate and onBind Viewholder, there is a lot of slapping to be done.
+
+you can see the 4 types of implementation in these repositories: 
+
+
+https://github.com/abbasiehsan1991/Open-Close-RecyclerView
+
+
+https://github.com/hadi72h/Open-Close-RecyclerView
+
